@@ -1,7 +1,33 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿@model MVC_API_KALD.Models.Calendar
+@{
+                /**/
+
+                ViewBag.Title = "Calendar";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+    <table id="calendar">
+        <tr>
+            <th>MO</th>
+            <th>TU</th>
+            <th>WE</th>
+            <th>TH</th>
+            <th>FR</th>
+            <th>SA</th>
+            <th>SU</th>
+        </tr>
+        @{
+    
+            for (int row = 0; row < 6; row++)
+            {
+                <tr>
+                    @for (int column = 0; column < 7; column++)
+                    {
+                        <td>@Model.DaysInMonth[row, column]</td>
+                    }
+                </tr>
+            }
+        }
+
+    </table>
